@@ -144,16 +144,48 @@
 
 // Masala 8
 
-let salary = prompt('Oylik maoshni kiriting'),
-    workingHours = prompt('Oylik ish vaqtni kiriting')
+// let salary = prompt('Oylik maoshni kiriting'),
+//     workingHours = prompt('Oylik ish vaqtni kiriting')
 
-if (0 < workingHours && workingHours <= 40){
-    salary = salary * workingHours
-    alert(`Oylik maoshingiz ${salary} so'mga teng`)
-}else if(workingHours > 40){
-    salary = salary * workingHours
-    salary = salary * 1.5
-    alert(`Oylik maoshingiz ${salary} so'mga teng`)
-}else{
-    alert('Noto`g`ri maosh kiritdingiz')
-}
+// if (0 < workingHours && workingHours <= 40){
+//     salary = salary * workingHours
+//     alert(`Oylik maoshingiz ${salary} so'mga teng`)
+// }else if(workingHours > 40){
+//     salary = salary * workingHours
+//     salary = salary * 1.5
+//     alert(`Oylik maoshingiz ${salary} so'mga teng`)
+// }else{
+//     alert('Noto`g`ri maosh kiritdingiz')
+// }
+
+// ==============================================
+
+// Masala 9
+
+// let month = prompt('Oyni kiriting')
+
+// if(month == 12 || month == 1 || month == 2){
+//     alert('Qish')
+// }else if(month == 3 || month == 4 || month == 5){
+//     alert('Bahor')
+// }else if(month == 6 || month == 7 || month == 8){
+//     alert('Yoz')
+// }else if(month == 9 || month == 10 || month == 11){
+//     alert('Kuz')
+// }else{
+//     alert('Noto`g`ri oy raqamini kiritdingiz')
+// }
+
+// ==============================================
+
+// Masala 10
+
+// let userPassword = prompt('Parolingizni kiriting')
+
+// if (userPassword.length < 8){
+//     alert('Parol zaif!')
+// }else if (userPassword.length >= 8 && userPassword.length <= 12){
+//     alert("Parol o'rtacha xavfsiz")
+// }else{
+//     alert('Parol xavfsiz')
+// }
