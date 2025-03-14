@@ -139,3 +139,21 @@
 // }else{
 //     alert(`${userNumber} soni ${number} ga bo'linmaydi!`)
 // }
+
+// ==============================================
+
+// Masala 8
+
+let salary = prompt('Oylik maoshni kiriting'),
+    workingHours = prompt('Oylik ish vaqtni kiriting')
+
+if (0 < workingHours && workingHours <= 40){
+    salary = salary * workingHours
+    alert(`Oylik maoshingiz ${salary} so'mga teng`)
+}else if(workingHours > 40){
+    salary = salary * workingHours
+    salary = salary * 1.5
+    alert(`Oylik maoshingiz ${salary} so'mga teng`)
+}else{
+    alert('Noto`g`ri maosh kiritdingiz')
+}
