@@ -1,8 +1,8 @@
 `use strict`;
 
 // Juft yoki toq sonlarni aniqlash
-
 // Masala 1
+
 // let number = 8
 
 // if (number % 2 === 0){
@@ -14,7 +14,6 @@
 // ==============================================
 
 // Havo harorati bo'yicha tavsiyalar
-
 // Masala 2
 
 // let temperature = 30
@@ -34,7 +33,6 @@
 // ==============================================
 
 // Login va parol tekshirish
-
 // Masala 3
 
 // let userName = 'admin',
@@ -54,7 +52,6 @@
 // ==============================================
 
 // Sonning musbat yoki manfiyligini aniqlash
-
 // Masala 1
 
 // let number = 5;
@@ -68,7 +65,6 @@
 // ==============================================
 
 // Yoshga qarab film tavsiyasi
-
 // Masala 2
 
 // let age = 20
@@ -84,7 +80,6 @@
 // ==============================================
 
 // Parolni tekshirish
-
 // Masala 3
 
 // let password = '12345'
@@ -100,7 +95,6 @@
 // ==============================================
 
 // 3 ta sonni takrorlanish
-
 // Masala 4
 
 // let number1 = 12,
@@ -118,7 +112,6 @@
 // ==============================================
 
 // Tug'ilgan kunni tekshirish
-
 // Masala 5
 
 // let userBirthDay = prompt("Tug'ilgan kuningizni kiriting")
@@ -132,7 +125,6 @@
 // ==============================================
 
 // Tovar narxini chegirma bilan chiqarish
-
 // Masala 6
 
 // let price = prompt('Narxni kiriting'),
@@ -150,7 +142,6 @@
 // ==============================================
 
 // Sonni 5 ga bo`linishini tekshirish
-
 // Masala 7
 
 // let userNumber = prompt('Sonni kiriting'),
@@ -165,7 +156,6 @@
 // ==============================================
 
 // ish vaqtiga qarab maosh chiqarish
-
 // Masala 8
 
 // let salary = prompt('Oylik maoshni kiriting'),
@@ -185,7 +175,6 @@
 // ==============================================
 
 // Kiritilgan songa qarab faslni aniqlash
-
 // Masala 9
 
 // let month = prompt('Oyni kiriting')
@@ -205,7 +194,6 @@
 // ==============================================
 
 // Parol xavfsizligini tekshirish
-
 // Masala 10
 
 // let userPassword = prompt('Parolingizni kiriting')
