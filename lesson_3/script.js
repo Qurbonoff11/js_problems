@@ -53,8 +53,8 @@
 // Masala 4
 
 // let num = -4
-// let num2 = -5
-// let num3 = -6
+// let num2 = 5
+// let num3 = 6
 
 // if (num > 0 && num2 > 0 && num3 > 0){
 //     console.log("Hamma son musbat")
@@ -129,3 +129,32 @@
 
 // Masala 7
 
+// let num = 7,
+//     num2 = 7
+
+// if (num > num2){
+//     console.log(`${num2} soni ${num2} qatorda`)
+// }else if (num < num2){
+//     console.log(`${num} soni ${num} qatorda`)
+// }else{
+//     console.log('Sonlar teng')
+// }
+
+// ==============================================
+
+// Masala 8
+
+// let num = 71,
+//     num2 = 12
+
+// if (num > num2){
+//     console.log(`${num} - ${num2}`)
+// }else if (num < num2){
+//     console.log(`${num2} - ${num}`)
+// }else{
+//     console.log('Sonlar teng')
+// }
+
+// ==============================================
+
+// Masala 9
