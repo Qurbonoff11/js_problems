@@ -179,7 +179,7 @@
 
 // ! ========== Masala 11 ============
 
-// For tsikli foydalanib, stringdagi har bir belgi necha marta takrorlanishini aniqlash.
+// For tsikli foydalanib, stringdagi har bir belgi necha marta takrorlalgan harfni aniqlash.
 // Input: "potato"
 // Output: {p: 1, o: 2, t: 2, a: 1}
 
@@ -220,11 +220,27 @@
 
 // console.log(result);
 
-// ! ========== Masala 14 ============
+// * ========== Masala 14 ============
 
 // For tsikli yordamida strdagi raqamlar bina harflarni alohida ajratish.
 // Input: "abc123dfe"
 // Output: Letters: "abcdf" Numbers: "123"
+
+// let txt = "abc123dfe",
+//     newTxt = txt.split(""),
+//     letters = "",
+//     numbers = ""
+
+// for (let i = 0; i < txt.length; i++){
+
+//     if ("a" <= newTxt[i] && newTxt[i] <= "z"){
+//         letters += newTxt[i]
+//     } else {
+//         numbers += newTxt[i]
+//     }
+// }
+
+// console.log(`Letters: ${letters}\nNumbers: ${numbers}`)
 
 // * ========== Masala 15 ============
 
