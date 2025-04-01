@@ -64,4 +64,4 @@
 
 // }
 
-// console.log(whatday(1));
+// console.log(whatday(2));

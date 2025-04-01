@@ -183,7 +183,6 @@
 // Input: "potato"
 // Output: {p: 1, o: 2, t: 2, a: 1}
 
-
 // * ========== Masala 12 ============
 
 // For tsikli yordamida, stringdagi har bir harfni qayta o'zgartirish (masalan: h -> j).
