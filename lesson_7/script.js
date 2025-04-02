@@ -7,11 +7,10 @@
 // Output: "olleh"
 
 // let txt = "salom",
-//     txt2 = txt.split(""),
 //     result = ""
 
-// for (let i = txt2.length-1; i >= 0; i--) {
-//     result += txt2[i]
+// for (let i = txt.length-1; i >= 0; i--) {
+//     result += txt[i]
 // }
 
 // console.log(result);
@@ -23,12 +22,11 @@
 // Output: "bnn"
 
 // let txt = "banana",
-//     txt2 = txt.split(""),
 //     result = ""
 
-// for (let i = 0; i < txt2.length; i++) {
-//     if (txt2[i] !== "a"){
-//         result += txt2[i]
+// for (let i = 0; i < txt.length; i++) {
+//     if (txt[i] !== "a"){
+//         result += txt[i]
 //     }
 // }
 // console.log(result);
@@ -39,16 +37,16 @@
 // Input: "123abc"
 // Output: "123"
 
-// let txt = "123abc",
-//     txt2 = txt.split(""),
-//     result = ""
+let txt = "123abc",
+    txt2 = txt.split(""),
+    result = ""
 
-// for (let i = 0; i < txt2.length; i++) {
-//     if (txt2[i] >= 0 && txt2[i] <= 9){
-//         result += txt2[i]
-//     }
-// }
-// console.log(result);
+for (let i = 0; i < txt2.length; i++) {
+    if (txt2[i] >= 0 && txt2[i] <= 9){
+        result += txt2[i]
+    }
+}
+console.log(result);
 
 // * ============ Masala 4 ============
 

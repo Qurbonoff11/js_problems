@@ -65,3 +65,73 @@
 // }
 
 // console.log(whatday(2));
+
+// ===================
+
+// function usdcny(usd) {
+
+//     let CNY;
+//     CNY = usd * 6.75
+//     return `${CNY.toFixed(2)} Chinese Yuan`
+
+// }
+
+// console.log(usdcny(15));
+
+// ===================
+
+// function finalGrade(exam, projects) {
+//     if (exam > 90 || projects > 10) {
+//         return 100;
+//     } else if (exam > 75 && projects >= 5) {
+//         return 90;
+//     } else if (exam > 50 && projects >= 2) {
+//         return 75;
+//     } else {
+//         return 0;
+//     }
+// }
+
+// console.log(finalGrade(100, 12))
+
+// ===================
+
+// function trickyScope() {
+//     var x = 10;
+//     if (true) {
+//         let x = 5;
+//         console.log(x);
+//     }
+//     console.log(x);
+// }
+
+// trickyScope();
+
+// ===================
+
+// var arr1=[1,2,3,4,5]
+// arr1.reverse()
+// console.log(arr1)
+// var arr2=['a','b','c']
+// arr2.reverse()
+// console.log(arr2)
+
+// ===================
+
+// var a = 1;
+
+// const func = () => {
+//     console.log(a)
+//     var a = 5
+// }
+
+// func()
+
+// ===================
+
+// let i = 0
+
+// const arr = new Array(5)
+// arr.forEach(() => i++)
+
+// console.log(i);
