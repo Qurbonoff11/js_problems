@@ -37,16 +37,16 @@
 // Input: "123abc"
 // Output: "123"
 
-let txt = "123abc",
-    txt2 = txt.split(""),
-    result = ""
+// let txt = "123abc",
+//     txt2 = txt.split(""),
+//     result = ""
 
-for (let i = 0; i < txt2.length; i++) {
-    if (txt2[i] >= 0 && txt2[i] <= 9){
-        result += txt2[i]
-    }
-}
-console.log(result);
+// for (let i = 0; i < txt2.length; i++) {
+//     if (txt2[i] >= 0 && txt2[i] <= 9){
+//         result += txt2[i]
+//     }
+// }
+// console.log(result);
 
 // * ============ Masala 4 ============
 

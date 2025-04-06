@@ -39,9 +39,9 @@
 
 // let arr = [],
 //     input = "olma, nok, kivi, banan, ananas",
-//     input2 = input.slice()
+//     input2 = input.split(", ")
 
-// arr.push(input)
+// arr.push(input2)
 
 // console.log(arr);
 
@@ -64,3 +64,10 @@
 
 // ========== 8 - masala ==========
 
+// let arr = [],
+//     word = "puma, nike, adidas, versace, gucci",
+//     words = word.split(", ")
+
+// arr.unshift(words)
+
+// console.log(arr);
