@@ -135,3 +135,32 @@
 // arr.forEach(() => i++)
 
 // console.log(i);
+
+// ===================
+
+// const persons = [
+//     {
+//         username: "Akbar",
+//         level: 32,
+//         rank: "Gold 1"
+//     },
+//     {
+//         username: "Qurbonoff",
+//         level: 35,
+//         rank: "Silver 4"
+//     },
+//     {
+//         username: "Makhsad",
+//         level: 22,
+//         rank: "Silver 3"
+//     },
+//     {
+//         username: "Hacker",
+//         level: 102,
+//         rank: "Diamond 5"
+//     }
+// ]
+
+// for (let i = 0; i < persons.length; i++){
+//     console.log(persons[i]);
+// }
