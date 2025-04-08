@@ -6,32 +6,65 @@
 // Input: "hello"
 // Output: "olleh"
 
-let input = "hello";
-let reverse = "";
+// let input = "hello";
+// let reverse = "";
 
-for (let char of input) {
-  reverse = char + reverse;
-}
+// for (let rev of input) {
+//   reverse = rev + reverse;
+// }
 
-console.log(reverse);
+// console.log(reverse);
 
 // * ============ Masala 2 ============
 
 // For tsiklidan foydalanib stringdagi barcha "a" harflarini olib tashlash.
 // Input: "banana"
-// Output: "bnn"=
+// Output: "bnn"
+
+// let input = "banana"
+// let output = ""
+
+// for (let out of input){
+//     if (out !== "a") {
+//         output += out
+//     }
+// }
+
+// console.log(output);
 
 // * ============ Masala 3 ============
 
 // For tsikli yordamida stringdagi faqat raqamlarni ajratib olish.
 // Input: "123abc"
-// Output: "123"=
+// Output: "123"
+
+// let input = "123abc"
+// let output = ""
+
+// for (let out of input){
+//     if (!isNaN(out)){
+//         output += out
+//     }
+// }
+
+// console.log(output);
 
 // * ============ Masala 4 ============
 
 // For tsikli yordamida raqamlarni yig'indisini chiqarish.
 // Input: "123abc"
-// Output: 6=
+// Output: 6
+
+// let input = "123abc"
+// let output = 0
+
+// for (let out of input) {
+//     if (!isNaN(out)) {
+//         output += Number(out)
+//     }
+// }
+
+// console.log(output);
 
 // * ============ Masala 5 ============
 
