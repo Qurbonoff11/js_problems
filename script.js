@@ -164,17 +164,3 @@
 // for (let i = 0; i < persons.length; i++){
 //     console.log(persons[i]);
 // }
-
-// ===================
-
-const result = Number.parseInt("2025 year");
-
-
-
-
-
-
-
-
-
-                                                console.log("Qurbonoff.11")
