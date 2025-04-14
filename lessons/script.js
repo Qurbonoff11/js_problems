@@ -167,3 +167,27 @@
 
 // ===================
 
+// for (var i = 0; i < 3; i++) {
+//   setTimeout(() => console.log(i), 100);
+// }
+
+// ==================
+
+// function createCounter() {
+//   let count = 0;
+
+//   return function () {
+//     count++;
+//     return count;
+//   };
+// }
+
+// const counter1 = createCounter();
+// const counter2 = createCounter();
+
+// counter1();
+// counter1();
+// counter2();
+
+// const result = counter1() + counter2();
+// console.log(result);
