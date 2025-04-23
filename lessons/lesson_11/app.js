@@ -1,276 +1,285 @@
-// "use strict";
+"use srtict";
 
-// const users = [
-//   {
-//     id: `0344240`,
-//     firstName: `Jonibek`,
-//     LastName: `Qurbonov`,
-//     userCard: {
-//       cardName: `Humo`,
-//       cardNum: `9860-1201-3209-2313`,
-//       cardMonth: `12/29`,
-//       cardPass: `1271`,
-//       cardClickPass: `11998`,
-//       amount: 200000,
-//     },
-//   },
-//   {
-//     id: `1243241`,
-//     firstName: `Asror`,
-//     LastName: `Javlonov`,
-//     userCard: {
-//       cardName: `Uzcard`,
-//       cardNum: `4121-1201-3209-2313`,
-//       cardMonth: `01/27`,
-//       cardPass: `8787`,
-//       cardClickPass: `87122`,
-//       amount: 20000,
-//     },
-//   },
-// ];
+// * ============ Masala 1 ============
 
-// const ATM = {
-//   /* Verify user card */
-//   userCard: function (cardNum, cardPass) {
-//     return users.find(
-//       (user) =>
-//         user.userCard.cardNum === cardNum && user.userCard.cardPass === cardPass
-//     );
-//   },
+// For tsikli yordamida foydalanuvchidan kiritilgan matnni teskari tartibda chiqarish.
+// Input: "hello"
+// Output: "olleh"
 
-//   /* Verify user for Click system */
-//   verifyClick: function (cardNum, clickPass) {
-//     return users.find(
-//       (user) =>
-//         user.userCard.cardNum === cardNum &&
-//         user.userCard.cardClickPass === clickPass
-//     );
-//   },
-
-//   /* Withdraw money (Paynet -2% commission) */
-//   paynet: function (cardNum, cardPass, amount) {
-//     const user = this.userCard(cardNum, cardPass);
-//     if (!user) {
-//       return { success: false, message: "Invalid card or password" };
-//     }
-
-//     const totalAmount = amount + amount * 0.02; // 2% commission
-//     if (user.userCard.amount < totalAmount) {
-//       return { success: false, message: "Insufficient funds" };
-//     }
-
-//     user.userCard.amount -= totalAmount;
-//     return {
-//       success: true,
-//       message: `Withdrawn ${amount} with 2% commission (${
-//         amount * 0.02
-//       }). Remaining balance: ${user.userCard.amount}`,
-//     };
-//   },
-
-//   /* Transfer money via Click (+2% bonus) */
-//   click: function (cardNum, clickPass, amount) {
-//     const user = this.verifyClick(cardNum, clickPass);
-//     if (!user) {
-//       return { success: false, message: "Invalid card or Click password" };
-//     }
-
-//     const bonusAmount = amount * 0.02; // 2% bonus
-//     user.userCard.amount += bonusAmount;
-
-//     return {
-//       success: true,
-//       message: `Received ${amount} with 2% bonus (${bonusAmount}). New balance: ${user.userCard.amount}`,
-//     };
-//   },
-
-//   /* Pay utility bills (-1% commission) */
-//   komunal: function (cardNum, cardPass, amount) {
-//     const user = this.userCard(cardNum, cardPass);
-//     if (!user) {
-//       return { success: false, message: "Invalid card or password" };
-//     }
-
-//     const totalAmount = amount + amount * 0.01; // 1% commission
-//     if (user.userCard.amount < totalAmount) {
-//       return { success: false, message: "Insufficient funds" };
-//     }
-
-//     user.userCard.amount -= totalAmount;
-//     return {
-//       success: true,
-//       message: `Paid ${amount} for utility with 1% commission (${
-//         amount * 0.01
-//       }). Remaining balance: ${user.userCard.amount}`,
-//     };
-//   },
-
-//   /* Check balance */
-//   checkBalance: function (cardNum, cardPass) {
-//     const user = this.userCard(cardNum, cardPass);
-//     if (!user) {
-//       return { success: false, message: "Invalid card or password" };
-//     }
-
-//     return {
-//       success: true,
-//       message: `Your balance: ${user.userCard.amount}`,
-//     };
-//   },
+// const reverseText = (text) => {
+//   let result = "";
+//   for (let i = text.length - 1; i >= 0; i--) {
+//     result += text[i];
+//   }
+//   console.log(result);
 // };
 
-// // Example usage:
-// console.log(ATM.paynet("9860-1201-3209-2313", "1271", 10000));
-// console.log(ATM.click("4121-1201-3209-2313", "87122", 10000));
-// console.log(ATM.komunal("9860-1201-3209-2313", "1271", 5000));
-// console.log(ATM.checkBalance("9860-1201-3209-2313", "1271"));
+// reverseText("salom");
 
-// ===================================================================
+// * ============ Masala 2 ============
 
-"use strict";
+// For tsiklidan foydalanib stringdagi barcha "a" harflarini olib tashlash.
+// Input: "banana"
+// Output: "bnn"
 
-const users = [
-  {
-    id: `0344240`,
-    firstName: `Jonibek`,
-    LastName: `Qurbonov`,
-    userCard: {
-      cardName: `Humo`,
-      cardNum: `9860-1201-3209-2313`,
-      cardPass: `1271`,
-      cardClickPass: `11998`,
-      amount: 200000,
-    },
-  },
-  {
-    id: `1243241`,
-    firstName: `Asror`,
-    LastName: `Javlonov`,
-    userCard: {
-      cardName: `Uzcard`,
-      cardNum: `4121-1201-3209-2313`,
-      cardPass: `8787`,
-      cardClickPass: `87122`,
-      amount: 20000,
-    },
-  },
-];
+// const deleteLaters = (text, letter) => {
+//   let result = "";
 
-const ATM = {
-  /* Verify user card */
-  userCard: function (cardNum, cardPass) {
-    return users.find(
-      (user) =>
-        user.userCard.cardNum === cardNum && user.userCard.cardPass === cardPass
-    );
-  },
+//   for (let i = 0; i < text.length; i++) {
+//     if (text[i] !== letter) {
+//       result += text[i]
+//     }
+//   }
+//   console.log(result);
+// };
 
-  /* Verify user for Click system */
-  verifyClick: function (cardNum, clickPass) {
-    return users.find(
-      (user) =>
-        user.userCard.cardNum === cardNum &&
-        user.userCard.cardClickPass === clickPass
-    );
-  },
+// deleteLaters("banana", "n");
 
-  /* Withdraw money (Paynet -2% commission) */
-  paynet: function (cardNum, cardPass, amount) {
-    const user = this.userCard(cardNum, cardPass);
-    if (!user) {
-      return { success: false, message: "Invalid card or password" };
-    }
+// * ============ Masala 3 ============
 
-    const totalAmount = amount + amount * 0.02; // 2% commission
-    if (user.userCard.amount < totalAmount) {
-      return { success: false, message: "Insufficient funds" };
-    }
+// For tsikli yordamida stringdagi faqat raqamlarni ajratib olish.
+// Input: "123abc"
+// Output: "123"
 
-    user.userCard.amount -= totalAmount;
-    return {
-      success: true,
-      message: `Withdrawn ${amount} with 2% commission (${
-        amount * 0.02
-      }). Remaining balance: ${user.userCard.amount}`,
-    };
-  },
+// const ofNubers = (text) => {
+//   let result = ""
 
-  /* Transfer money via Click (+2% bonus) */
-  click: function (cardNum, clickPass, amount) {
-    const user = this.verifyClick(cardNum, clickPass);
-    if (!user) {
-      return { success: false, message: "Invalid card or Click password" };
-    }
+//   for (let i = 0; i < text.length; i++) {
+//     if (!isNaN(text[i])) {
+//       result += text[i]
+//     }
+//   }
+//   console.log(result)
+// }
 
-    const bonusAmount = amount * 0.02; // 2% bonus
-    user.userCard.amount += bonusAmount;
+// ofNubers("123abc456def")
 
-    return {
-      success: true,
-      message: `Received ${amount} with 2% bonus (${bonusAmount}). New balance: ${user.userCard.amount}`,
-    };
-  },
+// * ============ Masala 4 ============
 
-  /* Check balance */
-  checkBalance: function (cardNum, cardPass) {
-    const user = this.userCard(cardNum, cardPass);
-    if (!user) {
-      return { success: false, message: "Invalid card or password" };
-    }
+// For tsikli yordamida raqamlarni yig'indisini chiqarish.
+// Input: "123abc"
+// Output: 6
 
-    return {
-      success: true,
-      message: `Your balance: ${user.userCard.amount}`,
-    };
-  },
+// const inNumbers = (text) => {
+//   let result = 0
 
-  /* Transfer money between accounts */
-  transfer: function (fromCardNum, fromCardPass, toCardNum, amount) {
-    // Find sender and receiver
-    const sender = this.userCard(fromCardNum, fromCardPass);
-    const receiver = users.find((user) => user.userCard.cardNum === toCardNum);
+//   for (let i = 0; i < text.length; i++) {
+//     if (!isNaN(text[i])) {
+//       result += Number(text[i])
+//     }
+//   }
+//   console.log(result)
+// }
 
-    // Validations
-    if (!sender) {
-      return { success: false, message: "Invalid sender card or password" };
-    }
+// inNumbers("123abcd")
 
-    if (!receiver) {
-      return { success: false, message: "Receiver card not found" };
-    }
+// * ============ Masala 5 ============
 
-    if (sender.userCard.cardNum === receiver.userCard.cardNum) {
-      return { success: false, message: "Cannot transfer to the same account" };
-    }
+// For tskli yordamida, matndagi birinchi so'zning bosh harfini katta qilish.
+// Input: "hello world"
+// Output: "Hello world"
 
-    const commission = amount * 0.01; // 1% commission
-    const totalAmount = amount + commission;
+// const capitalize = (text) => {
+//   let result = ""
 
-    if (sender.userCard.amount < totalAmount) {
-      return { success: false, message: "Insufficient funds for transfer" };
-    }
+//   for (let i = 0; i < text.length; i++) {
+//     if (i == 0) {
+//       result += text[i].toUpperCase()
+//     }
+//   }
+//   result += text.slice(1)
+//   console.log(result);
+// }
 
-    // Perform transfer
-    sender.userCard.amount -= totalAmount;
-    receiver.userCard.amount += amount;
+// capitalize("salom")
 
-    return {
-      success: true,
-      message: `Transferred ${amount} from ${sender.userCard.cardNum} to ${receiver.userCard.cardNum} with 1% commission (${commission}).\nSender new balance: ${sender.userCard.amount}\nReceiver new balance: ${receiver.userCard.amount}`,
-    };
-  },
-};
+// * ============ Masala 6 ============
 
-// Example usage of transfer function
-console.log("Before transfer:");
-console.log(ATM.checkBalance("9860-1201-3209-2313", "1271"));
-console.log(ATM.checkBalance("4121-1201-3209-2313", "8787"));
+// For tsikli foydalanib stringdagi bo'sh joyni hisoblash.
+// Input: "hello world"
+// Output: 1
 
-console.log("\nTransferring 50000 from Humo to Uzcard:");
-console.log(
-  ATM.transfer("9860-1201-3209-2313", "1271", "4121-1201-3209-2313", 50000)
-);
+// const spaceCalc = (text, space) => {
+//   let result = 0;
 
-console.log("\nAfter transfer:");
-console.log(ATM.checkBalance("9860-1201-3209-2313", "1271"));
-console.log(ATM.checkBalance("4121-1201-3209-2313", "8787"));
+//   for (let i = 0; i < text.length; i++) {
+//     if (text[i] === space) {
+//       result++
+//     }
+//   }
+//   console.log(result);
+// }
+
+// spaceCalc("hello world, what's up guys", " ")
+
+// * ============ Masala 7 ============
+
+// Foydalanuvchidan kiritilgan matn palindrom ekanligini "for" tsikli yordamida tekshirish.
+// Input: "madam"
+// Output: True
+// Input: "hello"
+// Output: False
+
+// const palindrom = (text) => {
+//   let result = "";
+//   let i = text.length-1;
+
+//   do {
+//     result += text[i];
+//     i--;
+//   } while (i >= 0);
+
+//   console.log(result === text ? "True" : "False");
+// };
+
+// palindrom("aziza")
+
+// * =========== Masala 8 ============
+
+// For tsiklidan foydalanib, stringdagi so'zlarni ajratib olish (bo'sh joylar bilan ajratilgan).
+// Input: "hello world"
+// Output: ["hello", "world"]
+
+// const separatingWords = (text) => {
+//   let text2 = text.split(" ")
+//   let result = []
+
+//   for (let i = 0; i < text2.length; i++) {
+//     result = result.concat(text2[i])
+//   }
+//   return result
+// }
+
+// console.log(separatingWords("hello world"));
+
+// * ========== Masala 9 ============
+
+// For tsikli yordamida matndagi eng uzun so'zni topish.
+// Input: "hello Uzbekistan"
+// Output: "Uzbekistan"
+
+// const longLetter = (text) => {
+//   let text2 = text.split(" ")
+//   let result = ""
+
+//   for (let i = 0; i < text2.length; i++) {
+//     if (text2[i].length > result.length) {
+//       result = text2[i]
+//     }
+//   }
+//   return result
+// };
+
+// console.log(longLetter("hello uzbekistan"));
+
+// * ========== Masala 10 ============
+
+// For tsiklidan foydalanib, stringdagi so'zlar sonini aniqlash.
+// Input: "hello world"
+// Output: 2
+
+// const letters = (text) => {
+
+//   let text2 = text.split(" ")
+//   let result = 0
+
+//   for (let i = 0; i < text2.length; i++) {
+//     result++
+//   }
+
+//   return result
+// }
+
+// console.log(letters("salom dunyo"));
+
+// ! ========== Masala 11 ============
+
+// For tsikli foydalanib, stringdagi har bir belgi necha marta takrorlalgan harfni aniqlash.
+// Input: "potato"
+// Output: {p: 1, o: 2, t: 2, a: 1}
+
+// * ========== Masala 12 ============
+
+// For tsikli yordamida, stringdagi har bir harfni qayta o'zgartirish (masalan: h -> j).
+// Input: "hello"
+// Output: "jello"
+
+// let txt = "hello",
+//     txt2 = txt.split(""),
+//     result = ""
+
+// for (let i = 0; i < txt2.length; i++){
+//     if (txt2[i] === "h"){
+//         result += "j"
+//     }else{
+//         result += txt2[i]
+//     }
+// }
+
+// console.log(result);
+
+const replaceLetter = (text, letter) => {
+  let result = ""
+
+  for (let i = 0; i < text.length; i++) {
+    text[0] = letter
+    result += text[i]
+  }
+  return result
+}
+
+console.log(replaceLetter("salom", "m"));
+
+// * ========== Masala 13 ============
+
+// For tsiklidan foydalanib, strdagi so'zlarni raqamlar bilan ajratib yozish (masalan: "1. hello 2. world").
+// Input: "hello world"
+// Output: "1. hello 2. world"
+
+// let txt = "hello world",
+//     txt2 = txt.split(" "),
+//     result = ""
+
+// for (let i = 0; i < txt2.length; i++){
+//     result += `${i+1}. ${txt2[i]} `
+// }
+
+// console.log(result);
+
+// * ========== Masala 14 ============
+
+// For tsikli yordamida strdagi raqamlar bina harflarni alohida ajratish.
+// Input: "abc123dfe"
+// Output: Letters: "abcdf" Numbers: "123"
+
+// let txt = "abc123dfe",
+//     newTxt = txt.split(""),
+//     letters = "",
+//     numbers = ""
+
+// for (let i = 0; i < txt.length; i++){
+
+//     if ("a" <= newTxt[i] && newTxt[i] <= "z"){
+//         letters += newTxt[i]
+//     } else {
+//         numbers += newTxt[i]
+//     }
+// }
+
+// console.log(`Letters: ${letters}\nNumbers: ${numbers}`)
+
+// * ========== Masala 15 ============
+
+// For tsikli yordamida, strni ko'paytirish.
+// Input: "abc"
+// Output: "abc abc abc"
+
+// let txt = "abc",
+//     num = 3,
+//     result = ""
+
+// for (let i = 0; i < num; i++){
+//     result += txt + " "
+// }
+
+// console.log(result);

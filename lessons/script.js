@@ -191,3 +191,74 @@
 
 // const result = counter1() + counter2();
 // console.log(result);
+
+// ==================
+
+// let numbers = [3, 7, 2, 9, 1, 14, 6];
+// let max = numbers[0]
+
+// for (let i = 0; i < numbers.length; i++) {
+//   if (max < numbers[i]) {
+//     max = numbers[i]
+//   }
+// }
+// console.log(`Eng katta son: ${max}`)
+
+// ==================
+
+// console.log(NaN === NaN)
+// console.log(NaN == NaN)
+
+// ==================
+
+// console.log("2" - 1);
+// console.log("2" + 1);
+
+// ==================
+
+// let a = 10;
+// delete a;
+// console.log(a);
+
+// ==================
+
+// console.log(null + undefined)
+
+// =================
+
+// let arr = new Array("salom", "hello")
+// delete(arr[0])
+// arr.shift()
+
+// console.log(arr)
+
+// =================
+
+// const admin = {
+//   firsName: "Jonibek",
+//   lastName: "Qurbonov",
+//   age: 20,
+//   Job: "Full Stack Developer",
+//   skills: [
+//     "HTNL",
+//     "CSS",
+//     "JavaScript",
+//     "Python",
+//     "Pug",
+//     "Sass",
+//     "Less css",
+//     "Tailwind css"
+//   ],
+//   userRegion: "karshi"
+//   hobby: [
+//     "Games",
+//     "Music",
+//     "Design"
+//   ],
+//   social: {
+//     telegramUsername: "@Qurbonoff_11",
+//     instagramUsername: "@qurbonoff.11",
+//     githubUsername: "qurbonoff11",
+//     myWebSite: "Qurbonoff.netlify.app"
+//   }
+// }

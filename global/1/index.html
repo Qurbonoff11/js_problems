@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortune Apple - 5x10 Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #0a1a2a;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .game-container {
+            width: 100%;
+            max-width: 800px;
+            background-color: #122b3e;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #2a4a6a;
+        }
+
+        .game-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #f8c146;
+        }
+
+        .balance-container {
+            background-color: #1a3652;
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .balance-amount {
+            font-weight: bold;
+            margin-left: 8px;
+            color: #4caf50;
+        }
+
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .apple-cell {
+            height: 60px;
+            background-color: #0e2135;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .apple-cell:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(248, 193, 70, 0.5);
+        }
+
+        .apple {
+            width: 40px;
+            height: 40px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23E74C3C" d="M65 15c-5 0-10 5-15 5s-10-5-15-5c-15 0-25 15-25 30 0 25 15 40 35 50 5 2 10 2 10 2s5 0 10-2c20-10 35-25 35-50 0-15-10-30-25-30z"/><path fill="%232E4053" d="M50 20c0-5 5-10 10-10 0 5-5 10-10 10z"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            transition: all 0.3s;
+        }
+
+        .apple-cut {
+            width: 40px;
+            height: 20px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50"><path fill="%23E74C3C" d="M65 0c-5 0-10 5-15 5S40 0 35 0C20 0 10 15 10 30c0 10 3 18 10 20 7-2 10-10 10-20 0-5 5-10 10-10s10 5 15 5 10-5 15-5c0 10 3 18 10 20 7-2 10-10 10-20C90 15 80 0 65 0z"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+            display: none;
+        }
+
+        .seed {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: #2E4053;
+            border-radius: 50%;
+        }
+
+        .bet-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .bet-amount {
+            background-color: #1a3652;
+            padding: 15px;
+            border-radius: 10px;
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .bet-title {
+            font-size: 14px;
+            color: #7a9cc6;
+            margin-bottom: 5px;
+        }
+
+        .bet-input {
+            display: flex;
+            align-items: center;
+        }
+
+        .bet-input input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 5px 0;
+            border-bottom: 1px solid #2a4a6a;
+        }
+
+        .bet-buttons {
+            display: flex;
+            margin-left: 10px;
+        }
+
+        .bet-button {
+            background-color: #2a4a6a;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            margin-left: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .bet-button:hover {
+            background-color: #3a5a7a;
+        }
+
+        .play-button {
+            background-color: #f8c146;
+            color: #0a1a2a;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            flex: 0 0 150px;
+        }
+
+        .play-button:hover {
+            background-color: #ffd166;
+        }
+
+        .play-button:disabled {
+            background-color: #4a5a6a;
+            cursor: not-allowed;
+        }
+
+        .result-display {
+            background-color: #1a3652;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 18px;
+            min-height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .win {
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .lose {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .current-row {
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 16px;
+            color: #f8c146;
+        }
+
+        .row-indicator {
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: #1a3652;
+            border-radius: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .selected {
+            box-shadow: 0 0 15px rgba(248, 193, 70, 0.8);
+            border: 2px solid #f8c146;
+        }
+
+        .bitten {
+            background-color: rgba(231, 76, 60, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <div class="game-title">Fortune Apple - 5x10 Challenge</div>
+            <div class="balance-container">
+                <span>Balance:</span>
+                <span class="balance-amount">1000.00</span>
+            </div>
+        </div>
+
+        <div class="current-row">
+            <div class="row-indicator">Row: <span id="currentRow">1</span>/10</div>
+        </div>
+
+        <div class="game-board" id="gameBoard"></div>
+
+        <div class="result-display" id="resultDisplay">
+            Select an apple from the first row to begin
+        </div>
+
+        <div class="bet-controls">
+            <div class="bet-amount">
+                <div class="bet-title">Bet Amount</div>
+                <div class="bet-input">
+                    <input type="number" value="10.00" min="1" step="1" id="betInput">
+                    <div class="bet-buttons">
+                        <button class="bet-button" onclick="adjustBet(1)">+1</button>
+                        <button class="bet-button" onclick="adjustBet(5)">+5</button>
+                        <button class="bet-button" onclick="adjustBet(10)">+10</button>
+                    </div>
+                </div>
+            </div>
+            <button class="play-button" id="playButton" onclick="startGame()">START</button>
+        </div>
+    </div>
+
+    <script>
+        let balance = 1000.00;
+        let currentBet = 10.00;
+        let gameActive = false;
+        let currentRow = 0;
+        let totalRows = 10;
+        let columns = 5;
+        let selectedApples = [];
+        let gameBoard = [];
+
+        const gameBoardElement = document.getElementById('gameBoard');
+        const playButton = document.getElementById('playButton');
+        const betInput = document.getElementById('betInput');
+        const balanceAmount = document.querySelector('.balance-amount');
+        const resultDisplay = document.getElementById('resultDisplay');
+        const currentRowDisplay = document.getElementById('currentRow');
+
+        // Initialize the game board
+        function initGameBoard() {
+            gameBoardElement.innerHTML = '';
+            gameBoard = [];
+
+            for (let row = 0; row < totalRows; row++) {
+                gameBoard[row] = [];
+                for (let col = 0; col < columns; col++) {
+                    gameBoard[row][col] = {
+                        hasBittenApple: Math.random() < 0.2, // 20% chance of being bitten
+                        revealed: false
+                    };
+
+                    const cell = document.createElement('div');
+                    cell.className = 'apple-cell';
+                    cell.dataset.row = row;
+                    cell.dataset.col = col;
+
+                    const apple = document.createElement('div');
+                    apple.className = 'apple';
+
+                    const appleCut = document.createElement('div');
+                    appleCut.className = 'apple-cut';
+
+                    cell.appendChild(apple);
+                    cell.appendChild(appleCut);
+                    gameBoardElement.appendChild(cell);
+
+                    cell.addEventListener('click', () => selectApple(row, col));
+                }
+            }
+        }
+
+        // Start the game
+        function startGame() {
+            if (gameActive) return;
+
+            updateBetAmount();
+
+            if (currentBet > balance) {
+                alert('Not enough balance!');
+                return;
+            }
+
+            gameActive = true;
+            currentRow = 0;
+            selectedApples = [];
+            balance -= currentBet;
+            updateBalanceDisplay();
+
+            playButton.textContent = 'PLAYING...';
+            playButton.disabled = true;
+
+            initGameBoard();
+            updateCurrentRowDisplay();
+            resultDisplay.textContent = 'Select an apple from the first row';
+            resultDisplay.className = 'result-display';
+        }
+
+        // Select an apple
+        function selectApple(row, col) {
+            if (!gameActive || row !== currentRow || gameBoard[row][col].revealed) {
+                return;
+            }
+
+            // Mark this apple as selected
+            gameBoard[row][col].revealed = true;
+            selectedApples.push({ row, col });
+
+            // Highlight selected cell
+            const cells = document.querySelectorAll('.apple-cell');
+            const cellIndex = row * columns + col;
+            cells[cellIndex].classList.add('selected');
+
+            // Check if apple is bitten
+            const isBitten = gameBoard[row][col].hasBittenApple;
+
+            if (isBitten) {
+                // Show bitten apple
+                cells[cellIndex].querySelector('.apple').style.display = 'none';
+                cells[cellIndex].querySelector('.apple-cut').style.display = 'block';
+                cells[cellIndex].classList.add('bitten');
+
+                // Game over - lost
+                endGame(false);
+            } else {
+                // Good apple - continue to next row
+                currentRow++;
+                updateCurrentRowDisplay();
+
+                if (currentRow >= totalRows) {
+                    // Completed all rows - win
+                    endGame(true);
+                } else {
+                    resultDisplay.textContent = `Good choice! Now select from row ${currentRow + 1}`;
+                }
+            }
+        }
+
+        // End the game
+        function endGame(hasWon) {
+            gameActive = false;
+            playButton.textContent = 'PLAY AGAIN';
+            playButton.disabled = false;
+
+            // Reveal all bitten apples
+            const cells = document.querySelectorAll('.apple-cell');
+            cells.forEach((cell, index) => {
+                const row = Math.floor(index / columns);
+                const col = index % columns;
+
+                if (gameBoard[row][col].hasBittenApple) {
+                    cell.querySelector('.apple').style.display = 'none';
+                    cell.querySelector('.apple-cut').style.display = 'block';
+                    cell.classList.add('bitten');
+                }
+            });
+
+            if (hasWon) {
+                const multiplier = calculateMultiplier();
+                const winAmount = (currentBet * multiplier).toFixed(2);
+                balance += parseFloat(winAmount);
+                updateBalanceDisplay();
+
+                resultDisplay.textContent = `CONGRATULATIONS! You won ${multiplier}x (${winAmount})`;
+                resultDisplay.className = 'result-display win fade-in';
+            } else {
+                resultDisplay.textContent = 'GAME OVER! You selected a bitten apple';
+                resultDisplay.className = 'result-display lose fade-in';
+            }
+        }
+
+        // Calculate win multiplier based on how many rows completed
+        function calculateMultiplier() {
+            const progress = currentRow / totalRows; // 0 to 1
+            return 1 + (progress * 4); // 1x to 5x multiplier
+        }
+
+        // Update current row display
+        function updateCurrentRowDisplay() {
+            currentRowDisplay.textContent = `${currentRow + 1}/${totalRows}`;
+        }
+
+        // Adjust bet amount
+        function adjustBet(amount) {
+            currentBet += amount;
+            if (currentBet < 1) currentBet = 1;
+            if (currentBet > balance) currentBet = balance;
+            betInput.value = currentBet.toFixed(2);
+        }
+
+        // Update bet amount from input
+        function updateBetAmount() {
+            currentBet = parseFloat(betInput.value) || 1;
+            if (currentBet < 1) {
+                currentBet = 1;
+                betInput.value = '1.00';
+            }
+            if (currentBet > balance) {
+                currentBet = balance;
+                betInput.value = balance.toFixed(2);
+            }
+        }
+
+        // Update balance display
+        function updateBalanceDisplay() {
+            balanceAmount.textContent = balance.toFixed(2);
+        }
+
+        // Initialize the game when page loads
+        window.onload = function() {
+            updateBalanceDisplay();
+            betInput.addEventListener('change', updateBetAmount);
+        };
+    </script>
+</body>
+</html>
