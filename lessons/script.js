@@ -262,3 +262,48 @@
 //     myWebSite: "Qurbonoff.netlify.app"
 //   }
 // }
+
+
+// ========================
+
+// const noSpace = (x) => {
+
+//   let result = ""
+
+//   for (let i = 0; i < x.length; i++) {
+//     if (x[i] !== " ") {
+//       result += x[i]
+//     }
+//   }
+//   return result;
+// };
+
+// console.log(noSpace("s a l o m"));
+
+// ======================
+
+// let num = null;
+
+// console.log(Number(num));
+
+// =====================
+
+// if (true) {
+//   let a = 20;
+// }
+
+// console.log(a);
+
+// =====================
+
+// console.log(typeof function(){});
+
+// ====================
+
+// function repeatStr(n, s) {
+//   let result = '';
+//   Array.from({ length: n }).forEach(() => {
+//     result += s;
+//   });
+//   return result;
+// }

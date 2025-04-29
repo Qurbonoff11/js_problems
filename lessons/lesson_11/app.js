@@ -22,18 +22,18 @@
 // Input: "banana"
 // Output: "bnn"
 
-// const deleteLaters = (text, letter) => {
-//   let result = "";
+const deleteLaters = (text, letter) => {
+  let result = "";
 
-//   for (let i = 0; i < text.length; i++) {
-//     if (text[i] !== letter) {
-//       result += text[i]
-//     }
-//   }
-//   console.log(result);
-// };
+  for (let i = 0; i < text.length; i++) {
+    if (text[i] !== letter) {
+      result += text[i]
+    }
+  }
+  console.log(result);
+};
 
-// deleteLaters("banana", "n");
+deleteLaters("banana", "n");
 
 // * ============ Masala 3 ============
 
@@ -218,17 +218,17 @@
 
 // console.log(result);
 
-const replaceLetter = (text, letter) => {
-  let result = ""
+// const replaceLetter = (text, letter) => {
+//   let result = ""
 
-  for (let i = 0; i < text.length; i++) {
-    text[0] = letter
-    result += text[i]
-  }
-  return result
-}
+//   for (let i = 0; i < text.length; i++) {
+//     text[0] = letter
+//     result += text[i]
+//   }
+//   return result
+// }
 
-console.log(replaceLetter("salom", "m"));
+// console.log(replaceLetter("salom", "m"));
 
 // * ========== Masala 13 ============
 
