@@ -1,3 +1,3 @@
 # **JavaScript**
 
-***JavaScript problems***
+__*JavaScript problems*__
